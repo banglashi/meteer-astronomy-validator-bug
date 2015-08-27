@@ -1,0 +1,22 @@
+<head>
+  <title>meteer-astronomy-validator-bug</title>
+</head>
+
+<body>
+  {{> newPost}}
+</body>
+<template name="newPost">
+    <h2>NEW POST</h2>
+    <p>post title has to be null or string between 5-15 chars</p>
+    {{#with post}}
+        <input
+            class="js-title"
+            type="text"
+            value="{{title}}"
+        >
+        <a class="js-save" href="#">Save</a>
+        {{#if hasValidationError "title"}}
+            <span class="form_error">{{getValidationError "title"}}</span>
+        {{/if}}
+    {{/with}}
+</template>
